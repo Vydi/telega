@@ -6,10 +6,6 @@ from aiogram import Bot, Dispatcher, executor, types
 from sqliter import SQLighter
 from datetime import datetime
 
-from aiogram.types import ReplyKeyboardRemove, \
-    ReplyKeyboardMarkup, KeyboardButton, \
-    InlineKeyboardMarkup, InlineKeyboardButton
-
 # задаём уровень логов
 logging.basicConfig(level=logging.INFO)
 
@@ -66,6 +62,7 @@ async def posts(wait_for=3600):
         for s in subscriptions:
             await bot.send_message(s[1], text=db.get_random_post())
             print('------------------------------------------', s[-1], datetime.now())
+
 
 # запускаем лонг поллинг
 if __name__ == '__main__':
